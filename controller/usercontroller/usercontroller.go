@@ -9,6 +9,12 @@ import (
 	"gorm.io/gorm"
 )
 
+func ValidateToken(r *http.Request) bool {
+    token := r.Header.Get("Authorization")
+    return token == "Bearer token_app"
+
+}
+
 func Index(c *gin.Context) {
 	var user []models.Users
 
